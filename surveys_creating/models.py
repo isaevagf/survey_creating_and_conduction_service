@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 class Questionnaire(models.Model):
     name = models.CharField("Наименование анкеты")
     author = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -11,9 +12,11 @@ class Questionnaire(models.Model):
         return self.name
 
 class Question(models.Model):
+    questionnaire = models.ForeignKey(Questionnaire, on_delete=models.CASCADE, null=True)
     number = models.IntegerField("№ Порядковый номер вопроса", default=-1)
     question_text = models.CharField("Текст вопроса", max_length=200)
     question_obligation = models.BooleanField("Обязательность вопроса", default=False)
+    active = models.BooleanField("Активный", default=True)
 
     def __str__(self):
         return self.question_text
@@ -25,3 +28,4 @@ class Choice(models.Model):
 
     def __str__(self):
         return self.choice_text
+
