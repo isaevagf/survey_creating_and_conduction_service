@@ -1,0 +1,8 @@
+<h1>Список анкет</h1>
+<ul>
+    {% for survey in surveys %}
+        <li><a href="{% url 'surveys_conducting:survey_detail' survey.id %}">{{ survey.name }}</a></li>
+    {% empty %}
+        <li>Нет доступных анкет</li>
+    {% endfor %}
+</ul>
