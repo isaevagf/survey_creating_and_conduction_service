@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}{{ questionnaire.name }}{% endblock %}
+{% block content %}
+    <h1>{{ questionnaire.name }}</h1>
+    <p>
+        Автор: {{ questionnaire.author }}
+    </p>
+    {% with questions.count as total_questions %}
+        <h2>
+            Всего вопросов: {{ total_questions }}
+        </h2>
+        {% for question in questions %}
+            <div class="question">
+                <p class="info">
+                    Вопрос №{{ question.number }} - "{{ question.question_text }}" Обязательность -
+                    {{ question.question_obligation }}
+                </p>
+                {{ comment.body|linebreaks }}
+            </div>
+        {% empty %}
+            <p>В анкете пока нет вопросов.</p>
+        {% endfor %}
+        {% if new_question %}
+            <h2>Ваш вопрос был добавлен.</h2>
+        {% else %}
+            <h2>Добавьте новый вопрос:</h2>
+            <form action="question_creating.html" method="post">
+                {% csrf_token %}
+                <p><input type="submit" value="Добавить вопрос"></p>
+            </form>
+        {% endif %}
+    {% endwith %}
+{% endblock %}

@@ -5,7 +5,6 @@ from surveys_creating.models import Questionnaire, Question, Choice
 from .models import Response, Answer
 from .forms import SurveyResponseForm
 
-
 def survey_list(request):
     surveys = Questionnaire.objects.all()
     return render(request, "surveys_conducting/survey_list.html", {"surveys": surveys})

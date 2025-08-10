@@ -17,12 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
-from surveys_creating import views
+from survey_creating_and_conduction_service import views
 
 urlpatterns = [
     path("", views.index, name="index"),
-    path("surveys/", include("surveys_conducting.urls")),
     path('admin/', admin.site.urls),
     path('user/', include("authorization.urls")),
-    path('surveys_conducting/', include('surveys_conducting.urls')),
+    path('surveys_conducting/', include('surveys_conducting.urls', namespace='surveys_conducting')),
+    path("surveys_creating/", include("surveys_creating.urls", namespace='surveys_creating')),
 ]

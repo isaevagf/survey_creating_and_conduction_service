@@ -1,14 +1,19 @@
 from django import forms
 
-from surveys_creating.models import Questionnaire, Question
-
+from surveys_creating.models import Questionnaire, Question, Choice
 
 class QuestionnaireForm(forms.ModelForm):
+    choice = forms.ModelChoiceField(queryset=Question.objects.all())
     class Meta:
         model = Questionnaire
-        fields = ('name', 'author', 'email', 'min_scores')
+        fields = ('name', 'author')
 
 class QuestionForm(forms.ModelForm):
     class Meta:
         model = Question
-        fields = ('number', 'question_text', 'question_obligation', 'choices')
+        fields = ('question_text', 'question_obligation')
+
+class ChoiceForm(forms.ModelForm):
+    class Meta:
+        model = Choice
+        fields = ( 'choice_text', 'choice_points')
