@@ -9,7 +9,10 @@ urlpatterns = [
     re_path(r'(?P<q_id>[-\w]+)/$',
         views.survey_detail,
         name='survey_detail'),
-    re_path(r'(?P<q_id>[-\w]+)/$',
-        views.manage_parent,
+    re_path(r'(?P<q_id>[-\w]+)/question_creating/',
+        views.create_question_with_answers,
         name='question_creating'),
+    re_path(r'(?P<q_id>[-\w]+)/question_editing/(?P<number>[-\w]+)',
+        views.create_question_with_answers,
+        name='question_editing'),
 ]

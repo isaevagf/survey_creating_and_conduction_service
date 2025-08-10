@@ -16,7 +16,7 @@
     {% endif %}
     <span class="user">
         {% if request.user.is_authenticated %}
-            Hello {{ request.user.login }},
+            Hello {{ request.user }},
             <form method="post" action="{% url 'authorization:logout' %}">
                 {% csrf_token %}
                 <button type="submit">Logout</button>
