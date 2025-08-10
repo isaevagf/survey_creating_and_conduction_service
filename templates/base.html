@@ -10,16 +10,19 @@
     {% if request.user.is_authenticated %}
         <ul class="menu">
             <li {% if section == "dashboard" %}class="selected"{% endif %}>
-            <a href="{% url "dashboard" %}">My dashboard</a>
+                <a href="{% url "authorization:dashboard" %}">My dashboard</a>
             </li>
         </ul>
     {% endif %}
     <span class="user">
         {% if request.user.is_authenticated %}
             Hello {{ request.user.login }},
-            <a href="{% url "logout" %}">Logout</a>
+            <form method="post" action="{% url 'authorization:logout' %}">
+                {% csrf_token %}
+                <button type="submit">Logout</button>
+            </form>
         {% else %}
-            <a href="{% url "login" %}">Log-in</a>
+            <a href="{% url "authorization:login" %}">Log-in</a>
         {% endif %}
     </span>
 </div>
