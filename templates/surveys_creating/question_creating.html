@@ -1,10 +1,12 @@
 <form method="post">
     {% csrf_token %}
     {{ question_form.as_p }}
-    <h3>Answers:</h3>
+    <h3>Ответы:</h3>
     {{ choice_formset.management_form }}
     {% for form in choice_formset %}
-        {{ form.as_p }}
+        <div>
+                {{ form.as_p }}
+        </div>
     {% endfor %}
-    <button type="submit">Submit</button>
+    <button type="submit">Сохранить</button>
 </form>

@@ -9,15 +9,19 @@
         <h2>
             Всего вопросов: {{ total_questions }}
         </h2>
+        <form action="{% url 'surveys_creating:question_creating' q_id=questionnaire.q_id %}" method="get">
+            {% csrf_token %}
+            <p><input type="submit" value="Добавить вопрос"></p>
+        </form>
         {% for question in questions %}
             <div class="question">
                 <p class="info">
-                    {{ question.number }}. "{{ question.question_text }}"
+                    {{ forloop.revcounter }}. {{ question.question_text }}
                 <p >    {% if question.question_obligation %}
-                    Обязательный, 
+                    Обязательный,
                 {% else %}
-                    Необязательный, 
-                {% endif %} 
+                    Необязательный,
+                {% endif %}
                 {% if question.active %}
                     Активный
                 {% else %}
@@ -33,30 +37,25 @@
                     {% for choice in choices %}
                         {% if choice.question == question %}
                             <tr>
-                                <td>{{ choice.number }}.</td>
-                                <td>"{{ choice.choice_text }}"</td>
-                                <td> "{{ choice.choice_points }}"</td>
+                                <td>{{ forloop.counter }}.</td>
+                                <td>{{ choice.choice_text }}</td>
+                                <td> {{ choice.choice_points }}</td>
                             </tr>
                         {% endif %}
                     {% endfor %}
                     </tbody>
                 </table>
                 <p></p>
-                <form action="{% url 'surveys_conducting:question_editing' q_id=questionnaire.q_id number=question.number %}"
-                      method="post">
-                    {% csrf_token %}
-                    <input type="submit" value="Редактировать вопрос">
-                </form>
+            <form action="{% url 'surveys_creating:question_editing' q_id=questionnaire.q_id number=question.number %}"
+                  method="get">
+                {% csrf_token %}
+                <input type="submit" value="Редактировать вопрос">
+            </form>
 
             </div>
         {% empty %}
             <p>В анкете пока нет вопросов.</p>
         {% endfor %}
-
-        <form action="{% url 'surveys_conducting:question_creating' q_id=questionnaire.q_id %}" method="post">
-            {% csrf_token %}
-            <p><input type="submit" value="Добавить вопрос"></p>
-        </form>
 
     {% endwith %}
 {% endblock %}

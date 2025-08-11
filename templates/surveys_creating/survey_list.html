@@ -9,4 +9,8 @@
     {% empty %}
         <li>Вы еще не создали ни одной анкеты</li>
     {% endfor %}
+    <form action="{% url 'surveys_creating:questionnaire_creating' %}" method="post">
+        {% csrf_token %}
+        <p><input type="submit" value="Создать анкету"></p>
+    </form>
 {% endblock %}

@@ -6,7 +6,7 @@ app_name = "surveys_conducting"
 
 urlpatterns = [
     path("", views.survey_list, name="survey_list"),
-    re_path(r'(?P<q_id>[-\w]+)/$',
+    path('<int:q_id>/',
         views.survey_detail,
         name='survey_detail'),
     re_path(r'(?P<q_id>[-\w]+)/question_creating/',
@@ -15,4 +15,7 @@ urlpatterns = [
     re_path(r'(?P<q_id>[-\w]+)/question_editing/(?P<number>[-\w]+)',
         views.create_question_with_answers,
         name='question_editing'),
+    path('questionnaire_creating/',
+        views.questionnaire_creating,
+        name='questionnaire_creating'),
 ]
