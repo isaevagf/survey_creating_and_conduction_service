@@ -9,28 +9,27 @@ class SurveyResponseForm(forms.Form):
 
         for question in questions:
             required = question.question_obligation
-            choices = Choice.objects.filter(question=question)
+            choice_qs = Choice.objects.filter(question=question)
 
-            if not choices.exists():
+            if not choice_qs.exists():
                 # Текстовый ответ
-                self.fields[f"question_{question.id}"] = forms.CharField(
+                self.fields[f"question_{question.pk}"] = forms.CharField(
                     label=question.question_text,
                     required=required
                 )
+            elif choice_qs.count() == 1:
+                # radio-button for 1 choice
+                self.fields[f"question_{question.pk}"] = forms.ChoiceField(
+                    label=question.question_text,
+                    widget=forms.RadioSelect,
+                    choices=[(c.pk, c.choice_text) for c in choice_qs],
+                    required=required
+                )
             else:
-                if choices.count() == 1:
-                    # radio-button 1 choice
-                    self.fields[f"question_{question.id}"] = forms.ChoiceField(
-                        label=question.question_text,
-                        widget=forms.RadioSelect,
-                        choices=[(c.id, c.choice_text) for c in choices],
-                        required=required
-                    )
-                else:
-                    # check-box multiple choice
-                    self.fields[f"question_{question.id}"] = forms.MultipleChoiceField(
-                        label=question.question_text,
-                        widget=forms.CheckboxSelectMultiple,
-                        choices=[(c.id, c.choice_text) for c in choices],
-                        required=required
-                    )
+                # check-box multiple choice
+                self.fields[f"question_{question.pk}"] = forms.MultipleChoiceField(
+                    label=question.question_text,
+                    widget=forms.CheckboxSelectMultiple,
+                    choices=[(c.pk, c.choice_text) for c in choice_qs],
+                    required=required
+                )
