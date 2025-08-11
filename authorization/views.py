@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from authorization.forms import UserRegistrationForm, UserEditForm, ProfileEditForm
+from surveys_creating.models import Questionnaire
 from .forms import LoginForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
@@ -42,4 +43,7 @@ def edit(request):
 
 @login_required
 def dashboard(request):
-    return render(request, 'authorization/dashboard.html', {'section': 'dashboard'})
+    my_surveys = Questionnaire.objects.filter(author=request.user)
+    return render(request, "authorization/dashboard.html", {
+        "my_surveys": my_surveys
+    })

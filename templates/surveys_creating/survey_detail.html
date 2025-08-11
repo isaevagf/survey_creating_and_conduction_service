@@ -42,7 +42,7 @@
                     </tbody>
                 </table>
                 <p></p>
-                <form action="{% url 'surveys_conducting:question_editing' q_id=questionnaire.q_id number=question.number %}"
+                <form action="{% url 'surveys_creating:question_editing' q_id=questionnaire.q_id number=question.number %}"
                       method="post">
                     {% csrf_token %}
                     <input type="submit" value="Редактировать вопрос">
@@ -53,7 +53,7 @@
             <p>В анкете пока нет вопросов.</p>
         {% endfor %}
 
-        <form action="{% url 'surveys_conducting:question_creating' q_id=questionnaire.q_id %}" method="post">
+        <form action="{% url 'surveys_creating:question_creating' q_id=questionnaire.q_id %}" method="post">
             {% csrf_token %}
             <p><input type="submit" value="Добавить вопрос"></p>
         </form>

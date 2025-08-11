@@ -81,3 +81,8 @@ def survey_detail(request, survey_id):
 def survey_complete(request, survey_id):
     survey = get_object_or_404(Questionnaire, pk=survey_id)
     return render(request, "surveys_conducting/survey_complete.html", {"survey": survey})
+
+@login_required
+def available_surveys(request):
+    surveys = Questionnaire.objects.all()
+    return render(request, 'surveys_conducting/survey_list.html', {'surveys': surveys})
