@@ -3,18 +3,28 @@
 make migrate
 ```
 
-## Загрузка начальных данных в таблицы в БД из файлов initial_data/initial_data.json
+## Загрузка начальных данных в таблицы в БД 
+Тестовый данные загружаются из файла initial_data/initial_data.json
 ```
 make initdb
 ```
+Предзаполнятся таблицы пользователей: 
+- user1 (login - user1, пароль - user1)
+- admin (login - admin, пароль - admin)
 
-## Создание администратора
-```
-python manage.py createsuperuser 
-```
+Анкет:
+- "Кто ты?"
+- "Ментальное состояние"
+
+Ответов на анкеты:
+- "Кто ты?" пользователем user1
+
 
 ## Запуск сервиса
 ```
 make runserver
 ```
+
+
+
 

@@ -13,14 +13,14 @@ class ChoiceInline(admin.TabularInline):
 
 @admin.register(Questionnaire)
 class QuestionnaireAdmin(admin.ModelAdmin):
-    list_display = ('name', 'author', 'email', 'min_scores')
-    list_filter = ('author', 'min_scores')
+    list_display = ('name', 'author')
+    list_filter = ('author',)
     search_fields = ('user__username',)
     inlines = [QuestionInline]
 
 @admin.register(Question)
 class QuestionAdmin(admin.ModelAdmin):
-    list_display = ('question_text', 'question_obligation', 'active')
+    list_display = ('question_text', 'active')
     list_filter = ('questionnaire',)
     search_fields = ('question_text',)
     inlines = [ChoiceInline]

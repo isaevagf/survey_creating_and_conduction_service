@@ -12,15 +12,13 @@ class ChoiceForm(forms.ModelForm):
 class QuestionForm(forms.ModelForm):
     class Meta:
         model = Question
-        fields = ('question_text', 'question_obligation', 'active')
+        fields = ('question_text', 'active')
+        readonly_fields = ('number')
 
 class QuestionnaireForm(forms.ModelForm):
     class Meta:
         model = Questionnaire
-        fields = ('name', 'email', 'min_scores')
-        readonly_fields = ('q_id', 'author')
-
-
+        fields = ('name', 'max_questions')
 
 
 

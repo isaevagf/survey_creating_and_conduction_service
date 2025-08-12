@@ -1,27 +1,25 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container mt-4">
-    <h2 class="mb-4">{{ title|default:"Список анкет" }}</h2>
-    <div class="row">
-        {% for survey in surveys %}
-            <div class="col-md-4 mb-3">
-                <div class="card shadow-sm h-100">
-                    <div class="card-body d-flex flex-column">
-                        <h5 class="card-title">{{ survey.name }}</h5>
-                        <p class="card-text text-muted mb-4">
-                            Автор: {{ survey.author.username }}<br>
-                        </p>
-                        <a href="{% url 'surveys_conducting:survey_detail' survey.q_id %}"
-                           class="btn btn-primary mt-auto">
-                            Пройти анкету
-                        </a>
+    <div class="container mt-4">
+    <h1 style="color:darkslategrey; font-size: 40px">Доступные для прохождения анкеты: </h1>
+        <div class="row">
+            {% for survey in surveys %}
+                <div class="col-md-4 mb-3">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body d-flex flex-column">
+                            <h2>
+                                {{ forloop.counter }}. <a href="{% url 'surveys_conducting:survey_detail' survey.q_id %}">{{ survey.name }} </a>
+                            </h2>
+                            <p class="card-text text-muted mb-4">
+                                Автор: {{ survey.author.username }}
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        {% empty %}
-            <p>Нет доступных анкет.</p>
-        {% endfor %}
+            {% empty %}
+                <p>Нет доступных анкет.</p>
+            {% endfor %}
+        </div>
     </div>
-</div>
 {% endblock %}
