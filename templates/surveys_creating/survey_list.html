@@ -1,16 +1,21 @@
 {% extends "base.html" %}
-{% block title %}Questionnaires_title{% endblock %}
-{% block content %}
-    <h1>Ваши анкеты: </h1>
-    {% for survey in surveys %}
-        <h2>
-            {{ survey.q_id }}. <a href="{{ survey.get_absolute_url }}">{{ survey.name }}</a> 
-        </h2>
-    {% empty %}
-        <li>Вы еще не создали ни одной анкеты</li>
-    {% endfor %}
-    <form action="{% url 'surveys_creating:questionnaire_creating' %}" method="post">
-        {% csrf_token %}
-        <p><input type="submit" value="Создать анкету"></p>
-    </form>
-{% endblock %}
+<form method="post">
+    {% block title %}Questionnaires_title{% endblock %}
+    {% block content %}
+        <h1 style="color:darkslategrey; font-size: 40px">Ваши анкеты: </h1>
+         <h3><a href="{% url 'surveys_creating:questionnaire_creating' %}" class="btn btn-secondary">Создать анкету</a></h3>
+        {% for survey in surveys %}
+            <h2>
+                {{ forloop.counter }}. <a href="{% url 'surveys_creating:questionnaire_editing' survey.q_id %}">{{ survey.name }}</a>
+            </h2>
+            <form action="{% url 'surveys_creating:delete_questionnaire'  q_id=survey.q_id %}"
+                  method="post">
+                {% csrf_token %}
+                <button type="submit" onclick="return confirm('Вы уверены что хотите удалить анкету? Это действие нельзя отменить.');">Удалить анкету</button>
+            </form>
+        {% empty %}
+            <li>Вы еще не создали ни одной анкеты</li>
+        {% endfor %}
+       
+    {% endblock %}
+</form>

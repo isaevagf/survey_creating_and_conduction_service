@@ -1,8 +1,25 @@
-<h1>Список анкет</h1>
-<ul>
-    {% for survey in surveys %}
-        <li><a href="{% url 'surveys_conducting:survey_detail' survey.id %}">{{ survey.name }}</a></li>
-    {% empty %}
-        <li>Нет доступных анкет</li>
-    {% endfor %}
-</ul>
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container mt-4">
+    <h1 style="color:darkslategrey; font-size: 40px">Доступные для прохождения анкеты: </h1>
+        <div class="row">
+            {% for survey in surveys %}
+                <div class="col-md-4 mb-3">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body d-flex flex-column">
+                            <h2>
+                                {{ forloop.counter }}. <a href="{% url 'surveys_conducting:survey_detail' survey.q_id %}">{{ survey.name }} </a>
+                            </h2>
+                            <p class="card-text text-muted mb-4">
+                                Автор: {{ survey.author.username }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <p>Нет доступных анкет.</p>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

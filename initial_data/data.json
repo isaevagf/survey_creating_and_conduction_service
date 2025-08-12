@@ -1,0 +1,1119 @@
+[
+    {
+        "model": "authorization.profile",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "date_of_birth": null,
+            "questionnaires": []
+        }
+    },
+    {
+        "model": "surveys_creating.questionnaire",
+        "pk": 1,
+        "fields": {
+            "name": "Кто ты?",
+            "author": 1,
+            "max_questions": 4
+        }
+    },
+    {
+        "model": "surveys_creating.questionnaire",
+        "pk": 2,
+        "fields": {
+            "name": "Ментальное состояние",
+            "author": 1,
+            "max_questions": 4
+        }
+    },
+    {
+        "model": "surveys_creating.question",
+        "pk": 1,
+        "fields": {
+            "questionnaire": 1,
+            "question_text": "Укажите ваш пол",
+            "active": true
+        }
+    },
+    {
+        "model": "surveys_creating.question",
+        "pk": 2,
+        "fields": {
+            "questionnaire": 1,
+            "question_text": "Укажите свой возраст:",
+            "active": true
+        }
+    },
+    {
+        "model": "surveys_creating.question",
+        "pk": 3,
+        "fields": {
+            "questionnaire": 1,
+            "question_text": "Какое у вас образование?",
+            "active": true
+        }
+    },
+    {
+        "model": "surveys_creating.question",
+        "pk": 4,
+        "fields": {
+            "questionnaire": 1,
+            "question_text": "Ваше семейное положение?",
+            "active": true
+        }
+    },
+    {
+        "model": "surveys_creating.question",
+        "pk": 5,
+        "fields": {
+            "questionnaire": 1,
+            "question_text": "Место проживания: (Укажите город или населенный пункт)",
+            "active": true
+        }
+    },
+    {
+        "model": "surveys_creating.question",
+        "pk": 6,
+        "fields": {
+            "questionnaire": 1,
+            "question_text": "Ваш основной род занятий:",
+            "active": true
+        }
+    },
+    {
+        "model": "surveys_creating.question",
+        "pk": 7,
+        "fields": {
+            "questionnaire": 1,
+            "question_text": "Сколько времени вы тратите на просмотр телевизора в день?",
+            "active": true
+        }
+    },
+    {
+        "model": "surveys_creating.question",
+        "pk": 8,
+        "fields": {
+            "questionnaire": 1,
+            "question_text": "Как часто вы пользуетесь интернетом?",
+            "active": true
+        }
+    },
+    {
+        "model": "surveys_creating.question",
+        "pk": 9,
+        "fields": {
+            "questionnaire": 1,
+            "question_text": "Какие социальные сети вы используете чаще всего?",
+            "active": true
+        }
+    },
+    {
+        "model": "surveys_creating.question",
+        "pk": 10,
+        "fields": {
+            "questionnaire": 1,
+            "question_text": "Ваше общее удовлетворение жизнью: (По шкале от 1 до 10, где 1 - очень низкий уровень, а 10 - очень высокий)",
+            "active": true
+        }
+    },
+    {
+        "model": "surveys_creating.question",
+        "pk": 11,
+        "fields": {
+            "questionnaire": 2,
+            "question_text": "Вы с большим трудом просыпаетесь рано утром?",
+            "active": true
+        }
+    },
+    {
+        "model": "surveys_creating.question",
+        "pk": 12,
+        "fields": {
+            "questionnaire": 2,
+            "question_text": "В какое время вы ложитесь чаще всего?",
+            "active": true
+        }
+    },
+    {
+        "model": "surveys_creating.question",
+        "pk": 13,
+        "fields": {
+            "questionnaire": 2,
+            "question_text": "Вы склонны откладывать дела на потом?",
+            "active": true
+        }
+    },
+    {
+        "model": "surveys_creating.question",
+        "pk": 14,
+        "fields": {
+            "questionnaire": 2,
+            "question_text": "В какое время у вас обычно происходят конфликты с людьми?",
+            "active": true
+        }
+    },
+    {
+        "model": "surveys_creating.question",
+        "pk": 15,
+        "fields": {
+            "questionnaire": 2,
+            "question_text": "От чего вам легче отказаться?",
+            "active": true
+        }
+    },
+    {
+        "model": "surveys_creating.question",
+        "pk": 16,
+        "fields": {
+            "questionnaire": 2,
+            "question_text": "У вас отлично получается делать несколько дел одновременно?",
+            "active": true
+        }
+    },
+    {
+        "model": "surveys_creating.question",
+        "pk": 17,
+        "fields": {
+            "questionnaire": 2,
+            "question_text": "Какой у вас уровень стрессоустойчивости?",
+            "active": true
+        }
+    },
+    {
+        "model": "surveys_creating.question",
+        "pk": 18,
+        "fields": {
+            "questionnaire": 2,
+            "question_text": "У вас хороший самоконтроль?",
+            "active": true
+        }
+    },
+    {
+        "model": "surveys_creating.question",
+        "pk": 19,
+        "fields": {
+            "questionnaire": 2,
+            "question_text": "Злоупотребляете ли вы курением, алкоголем?",
+            "active": true
+        }
+    },
+    {
+        "model": "surveys_creating.question",
+        "pk": 20,
+        "fields": {
+            "questionnaire": 2,
+            "question_text": "Вы часто опаздываете на важные встречи?",
+            "active": true
+        }
+    },
+    {
+        "model": "surveys_creating.question",
+        "pk": 21,
+        "fields": {
+            "questionnaire": 2,
+            "question_text": "Когда вы предпочитаете заниматься спортом?",
+            "active": true
+        }
+    },
+    {
+        "model": "surveys_creating.question",
+        "pk": 22,
+        "fields": {
+            "questionnaire": 2,
+            "question_text": "асто вы впадаете в хандру?",
+            "active": true
+        }
+    },
+    {
+        "model": "surveys_creating.question",
+        "pk": 23,
+        "fields": {
+            "questionnaire": 2,
+            "question_text": "Вы положительно относитесь ко всему новому?",
+            "active": true
+        }
+    },
+    {
+        "model": "surveys_creating.question",
+        "pk": 24,
+        "fields": {
+            "questionnaire": 2,
+            "question_text": "Какая форма мышления у вас преобладает?",
+            "active": true
+        }
+    },
+    {
+        "model": "surveys_creating.question",
+        "pk": 25,
+        "fields": {
+            "questionnaire": 2,
+            "question_text": "Вы склонны к рискам?",
+            "active": true
+        }
+    },
+    {
+        "model": "surveys_creating.question",
+        "pk": 26,
+        "fields": {
+            "questionnaire": 2,
+            "question_text": "В какое время вам проще выполнять сложные задачи?",
+            "active": true
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 1,
+        "fields": {
+            "question": 1,
+            "choice_text": "Мужской",
+            "choice_points": 1
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 2,
+        "fields": {
+            "question": 1,
+            "choice_text": "Женский",
+            "choice_points": 2
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 3,
+        "fields": {
+            "question": 1,
+            "choice_text": "Другое",
+            "choice_points": 3
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 4,
+        "fields": {
+            "question": 2,
+            "choice_text": "Младше 18",
+            "choice_points": 1
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 5,
+        "fields": {
+            "question": 2,
+            "choice_text": "19-40",
+            "choice_points": 2
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 6,
+        "fields": {
+            "question": 2,
+            "choice_text": "Старше 40",
+            "choice_points": 3
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 7,
+        "fields": {
+            "question": 3,
+            "choice_text": "Среднее",
+            "choice_points": 1
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 8,
+        "fields": {
+            "question": 3,
+            "choice_text": "Среднее профессиональное",
+            "choice_points": 2
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 9,
+        "fields": {
+            "question": 3,
+            "choice_text": "Высшее",
+            "choice_points": 3
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 10,
+        "fields": {
+            "question": 4,
+            "choice_text": "Холост/Не замужем",
+            "choice_points": 1
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 11,
+        "fields": {
+            "question": 4,
+            "choice_text": "Женат/Замужем",
+            "choice_points": 2
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 12,
+        "fields": {
+            "question": 4,
+            "choice_text": "Разведен/Разведена",
+            "choice_points": 3
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 13,
+        "fields": {
+            "question": 4,
+            "choice_text": "Вдовец/Вдова",
+            "choice_points": 4
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 14,
+        "fields": {
+            "question": 6,
+            "choice_text": "Работаю",
+            "choice_points": 1
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 15,
+        "fields": {
+            "question": 6,
+            "choice_text": "Учусь",
+            "choice_points": 2
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 16,
+        "fields": {
+            "question": 6,
+            "choice_text": "Безработный",
+            "choice_points": 3
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 17,
+        "fields": {
+            "question": 6,
+            "choice_text": "Пенсионер",
+            "choice_points": 4
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 18,
+        "fields": {
+            "question": 7,
+            "choice_text": "Менее 1 часа",
+            "choice_points": 1
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 19,
+        "fields": {
+            "question": 7,
+            "choice_text": "1-3 часа",
+            "choice_points": 2
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 20,
+        "fields": {
+            "question": 7,
+            "choice_text": "3-5 часов",
+            "choice_points": 3
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 21,
+        "fields": {
+            "question": 7,
+            "choice_text": "5+ часов",
+            "choice_points": 4
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 22,
+        "fields": {
+            "question": 8,
+            "choice_text": "Ежедневно",
+            "choice_points": 1
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 23,
+        "fields": {
+            "question": 8,
+            "choice_text": "Несколько раз в неделю",
+            "choice_points": 2
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 24,
+        "fields": {
+            "question": 8,
+            "choice_text": "Несколько раз в месяц",
+            "choice_points": 3
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 25,
+        "fields": {
+            "question": 8,
+            "choice_text": "Редко",
+            "choice_points": 4
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 26,
+        "fields": {
+            "question": 9,
+            "choice_text": "Facebook",
+            "choice_points": 1
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 27,
+        "fields": {
+            "question": 9,
+            "choice_text": "ВКонтакте",
+            "choice_points": 2
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 28,
+        "fields": {
+            "question": 9,
+            "choice_text": "Instagram",
+            "choice_points": 3
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 29,
+        "fields": {
+            "question": 9,
+            "choice_text": "Другое",
+            "choice_points": 4
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 30,
+        "fields": {
+            "question": 11,
+            "choice_text": "Да, почти всегда",
+            "choice_points": 1
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 31,
+        "fields": {
+            "question": 11,
+            "choice_text": "Иногда",
+            "choice_points": 2
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 32,
+        "fields": {
+            "question": 11,
+            "choice_text": "Редко",
+            "choice_points": 3
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 33,
+        "fields": {
+            "question": 11,
+            "choice_text": "Очень редко",
+            "choice_points": 4
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 34,
+        "fields": {
+            "question": 12,
+            "choice_text": "До 22-00",
+            "choice_points": 1
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 35,
+        "fields": {
+            "question": 12,
+            "choice_text": "После 12-00",
+            "choice_points": 2
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 36,
+        "fields": {
+            "question": 12,
+            "choice_text": "Под утро",
+            "choice_points": 3
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 37,
+        "fields": {
+            "question": 13,
+            "choice_text": "Да, почти всегда",
+            "choice_points": 1
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 38,
+        "fields": {
+            "question": 13,
+            "choice_text": "Иногда",
+            "choice_points": 2
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 39,
+        "fields": {
+            "question": 13,
+            "choice_text": "Редко",
+            "choice_points": 3
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 40,
+        "fields": {
+            "question": 13,
+            "choice_text": "Очень редко",
+            "choice_points": 4
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 41,
+        "fields": {
+            "question": 14,
+            "choice_text": "В первой половине дня",
+            "choice_points": 1
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 42,
+        "fields": {
+            "question": 14,
+            "choice_text": "Во второй половине дня",
+            "choice_points": 2
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 43,
+        "fields": {
+            "question": 15,
+            "choice_text": "От утреннего кофе",
+            "choice_points": 1
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 44,
+        "fields": {
+            "question": 15,
+            "choice_text": "От вечернего чая",
+            "choice_points": 2
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 45,
+        "fields": {
+            "question": 16,
+            "choice_text": "Нет",
+            "choice_points": 1
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 46,
+        "fields": {
+            "question": 16,
+            "choice_text": "С большим трудом",
+            "choice_points": 2
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 47,
+        "fields": {
+            "question": 16,
+            "choice_text": "Когда как",
+            "choice_points": 3
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 48,
+        "fields": {
+            "question": 16,
+            "choice_text": "Да",
+            "choice_points": 4
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 49,
+        "fields": {
+            "question": 17,
+            "choice_text": "Высокий",
+            "choice_points": 1
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 50,
+        "fields": {
+            "question": 17,
+            "choice_text": "Выше среднего",
+            "choice_points": 2
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 51,
+        "fields": {
+            "question": 17,
+            "choice_text": "Средний",
+            "choice_points": 3
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 52,
+        "fields": {
+            "question": 17,
+            "choice_text": "Низкий",
+            "choice_points": 4
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 53,
+        "fields": {
+            "question": 18,
+            "choice_text": "Да",
+            "choice_points": 1
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 54,
+        "fields": {
+            "question": 18,
+            "choice_text": "Нет",
+            "choice_points": 2
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 55,
+        "fields": {
+            "question": 18,
+            "choice_text": "Не знаю",
+            "choice_points": 3
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 56,
+        "fields": {
+            "question": 19,
+            "choice_text": "Да",
+            "choice_points": 1
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 57,
+        "fields": {
+            "question": 19,
+            "choice_text": "Время от времени",
+            "choice_points": 2
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 58,
+        "fields": {
+            "question": 19,
+            "choice_text": "Нет",
+            "choice_points": 3
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 59,
+        "fields": {
+            "question": 20,
+            "choice_text": "Да",
+            "choice_points": 1
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 60,
+        "fields": {
+            "question": 20,
+            "choice_text": "Бывает",
+            "choice_points": 2
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 61,
+        "fields": {
+            "question": 20,
+            "choice_text": "Нет",
+            "choice_points": 3
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 62,
+        "fields": {
+            "question": 21,
+            "choice_text": "Утром",
+            "choice_points": 1
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 63,
+        "fields": {
+            "question": 21,
+            "choice_text": "Без разницы",
+            "choice_points": 2
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 64,
+        "fields": {
+            "question": 21,
+            "choice_text": "Вечером",
+            "choice_points": 3
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 65,
+        "fields": {
+            "question": 22,
+            "choice_text": "Да",
+            "choice_points": 1
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 66,
+        "fields": {
+            "question": 22,
+            "choice_text": "Редко",
+            "choice_points": 2
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 67,
+        "fields": {
+            "question": 22,
+            "choice_text": "Нет",
+            "choice_points": 3
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 68,
+        "fields": {
+            "question": 23,
+            "choice_text": "Да",
+            "choice_points": 1
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 69,
+        "fields": {
+            "question": 23,
+            "choice_text": "Нет",
+            "choice_points": 2
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 70,
+        "fields": {
+            "question": 23,
+            "choice_text": "Редко",
+            "choice_points": 3
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 71,
+        "fields": {
+            "question": 24,
+            "choice_text": "Творческая",
+            "choice_points": 1
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 72,
+        "fields": {
+            "question": 24,
+            "choice_text": "Логическая",
+            "choice_points": 2
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 73,
+        "fields": {
+            "question": 24,
+            "choice_text": "Пессимистическая",
+            "choice_points": 3
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 74,
+        "fields": {
+            "question": 25,
+            "choice_text": "Да",
+            "choice_points": 1
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 75,
+        "fields": {
+            "question": 25,
+            "choice_text": "Иногда",
+            "choice_points": 2
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 76,
+        "fields": {
+            "question": 25,
+            "choice_text": "Нет",
+            "choice_points": 3
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 77,
+        "fields": {
+            "question": 26,
+            "choice_text": "До обеда",
+            "choice_points": 1
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 78,
+        "fields": {
+            "question": 26,
+            "choice_text": "Без разницы",
+            "choice_points": 2
+        }
+    },
+    {
+        "model": "surveys_creating.choice",
+        "pk": 79,
+        "fields": {
+            "question": 26,
+            "choice_text": "После обеда",
+            "choice_points": 3
+        }
+    },
+    {
+        "model": "surveys_conducting.response",
+        "pk": 1,
+        "fields": {
+            "questionnaire": 1,
+            "user": 1,
+            "created_at": "2025-08-12T13:40:29.990Z"
+        }
+    },
+    {
+        "model": "surveys_conducting.answer",
+        "pk": 1,
+        "fields": {
+            "response": 1,
+            "question": 1,
+            "text_answer": null,
+            "choice": 2
+        }
+    },
+    {
+        "model": "surveys_conducting.answer",
+        "pk": 2,
+        "fields": {
+            "response": 1,
+            "question": 2,
+            "text_answer": null,
+            "choice": 5
+        }
+    },
+    {
+        "model": "surveys_conducting.answer",
+        "pk": 3,
+        "fields": {
+            "response": 1,
+            "question": 3,
+            "text_answer": null,
+            "choice": 9
+        }
+    },
+    {
+        "model": "surveys_conducting.answer",
+        "pk": 4,
+        "fields": {
+            "response": 1,
+            "question": 4,
+            "text_answer": null,
+            "choice": 12
+        }
+    },
+    {
+        "model": "surveys_conducting.answer",
+        "pk": 5,
+        "fields": {
+            "response": 1,
+            "question": 5,
+            "text_answer": "Москва",
+            "choice": null
+        }
+    },
+    {
+        "model": "surveys_conducting.answer",
+        "pk": 6,
+        "fields": {
+            "response": 1,
+            "question": 6,
+            "text_answer": null,
+            "choice": 14
+        }
+    },
+    {
+        "model": "surveys_conducting.answer",
+        "pk": 7,
+        "fields": {
+            "response": 1,
+            "question": 7,
+            "text_answer": null,
+            "choice": 18
+        }
+    },
+    {
+        "model": "surveys_conducting.answer",
+        "pk": 8,
+        "fields": {
+            "response": 1,
+            "question": 8,
+            "text_answer": null,
+            "choice": 22
+        }
+    },
+    {
+        "model": "surveys_conducting.answer",
+        "pk": 9,
+        "fields": {
+            "response": 1,
+            "question": 9,
+            "text_answer": null,
+            "choice": 28
+        }
+    },
+    {
+        "model": "surveys_conducting.answer",
+        "pk": 10,
+        "fields": {
+            "response": 1,
+            "question": 10,
+            "text_answer": null,
+            "choice": 8
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 1,
+        "fields": {
+            "password": "pbkdf2_sha256$1000000$HRvAuHiZUcd26CHuciYTga$KF4SDpkM4u3050sADJJ8uS6GQn08O1ibl2gSH3cLddM=",
+            "last_login": "2025-08-12T13:30:48.182Z",
+            "is_superuser": false,
+            "username": "user1",
+            "first_name": "user1",
+            "last_name": "",
+            "email": "user1@g.ry",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2025-08-12T13:30:40.373Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 2,
+        "fields": {
+            "password": "pbkdf2_sha256$1000000$YRv85f5h5fVnjaHF7CWqKv$satsUrLb9jEfKzdyeRdPBE/bk+mLXywyVieyvTGZYNg=",
+            "last_login": null,
+            "is_superuser": true,
+            "username": "admin",
+            "first_name": "",
+            "last_name": "",
+            "email": "admin@admin.ru",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2025-08-12T20:53:48.449Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    }
+]

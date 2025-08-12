@@ -1,61 +1,54 @@
 {% extends "base.html" %}
-{% block title %}{{ questionnaire.name }}{% endblock %}
-{% block content %}
-    <h1>{{ questionnaire.name }}</h1>
-    <p>
-        Автор: {{ questionnaire.author }}
-    </p>
-    {% with questions.count as total_questions %}
-        <h2>
-            Всего вопросов: {{ total_questions }}
-        </h2>
-        <form action="{% url 'surveys_creating:question_creating' q_id=questionnaire.q_id %}" method="get">
-            {% csrf_token %}
-            <p><input type="submit" value="Добавить вопрос"></p>
-        </form>
-        {% for question in questions %}
-            <div class="question">
-                <p class="info">
-                    {{ forloop.revcounter }}. {{ question.question_text }}
-                <p >    {% if question.question_obligation %}
-                    Обязательный,
-                {% else %}
-                    Необязательный,
-                {% endif %}
-                {% if question.active %}
-                    Активный
-                {% else %}
-                    Неактивный
-                {% endif %} </p>
-                <table style="width: 500px;" border="3px">
-                    <tbody>
-                    <tr>
-                        <td>№.</td>
-                        <td>Текст ответа</td>
-                        <td>Количество баллов за ответ</td>
-                    </tr>
-                    {% for choice in choices %}
-                        {% if choice.question == question %}
-                            <tr>
-                                <td>{{ forloop.counter }}.</td>
-                                <td>{{ choice.choice_text }}</td>
-                                <td> {{ choice.choice_points }}</td>
-                            </tr>
-                        {% endif %}
-                    {% endfor %}
-                    </tbody>
-                </table>
-                <p></p>
-            <form action="{% url 'surveys_creating:question_editing' q_id=questionnaire.q_id number=question.number %}"
-                  method="get">
+<form action="{% url 'surveys_creating:survey_list' %}" method="post">
+    
+    {% block title %}{{ questionnaire.name }}{% endblock %}
+    {% block content %}
+        <h1>Редактирование анкеты: {{ questionnaire.name }}</h1>
+        {% with questions.count as total_questions %}
+            <h2>
+                Всего вопросов: {{ total_questions }}
+            </h2>
+            <form action="{% url 'surveys_creating:question_creating' q_id=questionnaire.q_id %}" method="get">
                 {% csrf_token %}
-                <input type="submit" value="Редактировать вопрос">
+                <p><input type="submit" value="Добавить вопрос"></p>
             </form>
-
-            </div>
-        {% empty %}
-            <p>В анкете пока нет вопросов.</p>
-        {% endfor %}
-
-    {% endwith %}
-{% endblock %}
+            {% for question in questions %}
+                {{ question_form.as_p }}
+                <div class="question">
+                    <p class="info">
+                        {{ forloop.revcounter }}. <a
+                            href="{% url 'surveys_creating:question_editing' q_id=questionnaire.q_id number=question.number %}">{{ question.question_text }} </a>
+                    <form action="{% url 'surveys_creating:delete_question'  q_id=questionnaire.q_id item_id=question.pk %}"
+                          method="post">
+                        {% csrf_token %}
+                        <button type="submit"
+                                onclick="return confirm('Вы уверены что хотите удалить вопрос? Это действие нельзя отменить.');">
+                            Удалить вопрос
+                        </button>
+                    </form>
+                    <p></p>
+                    <table style="width: 500px;" border="3px">
+                        <tbody>
+                        <tr>
+                            <th style="background-color: lightgrey;">Текст ответа</th>
+                            <th style="background-color: lightgrey;">Количество баллов за ответ</th>
+                        </tr>
+                        {% for choice in choices %}
+                            {% if choice.question == question %}
+                                <tr>
+                                    <td>{{ choice.choice_text }}</td>
+                                    <td> {{ choice.choice_points }}</td>
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% empty %}
+                <p>В анкете пока нет вопросов.</p>
+            {% endfor %}
+            <a href="{% url 'surveys_creating:survey_list' %}" class="btn btn-secondary mt-3">⬅ Назад</a>
+        {% endwith %}
+    {% endblock %}
+   
+</form>

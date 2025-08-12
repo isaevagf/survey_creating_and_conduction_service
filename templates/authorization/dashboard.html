@@ -1,8 +1,31 @@
 {% extends "base.html" %}
 
-{% block title %}Dashboard{% endblock %}
-
 {% block content %}
-    <h1>Dashboard</h1>
-    <p>Welcome to your dashboard.</p>
+<h2>Личный кабинет</h2>
+
+{% if my_surveys %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Название анкеты</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for q in my_surveys %}
+            <tr>
+                <td>{{ q.name }}</td>
+                <td>
+                    <a href="{% url 'surveys_statistics:survey_stats' q.pk %}" class="btn btn-info btn-sm">
+                        Статистика
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>Вы ещё не создавали анкеты.</p>
+{% endif %}
+
 {% endblock %}

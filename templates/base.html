@@ -6,7 +6,7 @@
 </head>
 <body>
 <div id="header">
-    <span class="logo">Surveys service</span>
+    <span class="logo" style="color:dimgrey; font-size: 20px">Surveys service&#129534;</span>
     {% if request.user.is_authenticated %}
         <ul class="menu">
             <li {% if section == "dashboard" %}class="selected"{% endif %}>
@@ -16,7 +16,8 @@
     {% endif %}
     <span class="user">
         {% if request.user.is_authenticated %}
-            Hello {{ request.user }},
+            <li>Вы вошли как: <strong>{{ user.username }}</strong></li>
+
             <form method="post" action="{% url 'authorization:logout' %}">
                 {% csrf_token %}
                 <button type="submit">Logout</button>
@@ -24,6 +25,15 @@
         {% else %}
             <a href="{% url "authorization:login" %}">Log-in</a>
         {% endif %}
+        <p></p>
+        <li>
+           <a href="{% url 'surveys_conducting:available_surveys' %}">
+                            Доступные для прохождения анкеты</a>
+         </li>
+        <li>
+           <a href="{% url 'surveys_creating:survey_list' %}">
+                            Ваши анкеты</a>
+         </li>
     </span>
 </div>
 <div id="content">

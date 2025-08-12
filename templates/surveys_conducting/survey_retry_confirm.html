@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Вы уже проходили анкету "{{ questionnaire.name }}"</h2>
+<p>Хотите пройти её снова?</p>
+
+<a href="?retry=1" class="btn btn-primary">Да</a>
+<a href="{% url 'surveys_conducting:survey_list' %}" class="btn btn-secondary">Нет</a>
+{% endblock %}

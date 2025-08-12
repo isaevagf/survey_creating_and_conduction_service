@@ -1,18 +1,30 @@
 ## Создание таблиц в БД
+```
+make migrate
+```
 
+## Загрузка начальных данных в таблицы в БД 
+Тестовый данные загружаются из файла initial_data/initial_data.json
 ```
-python manage.py makemigrations surveys_creating
-python manage.py makemigrations surveys_conducting
-python manage.py migrate
- ```
+make initdb
+```
+Предзаполнятся таблицы пользователей: 
+- user1 (login - user1, пароль - user1)
+- admin (login - admin, пароль - admin)
 
-## Создание администратора
-```
-python manage.py createsuperuser 
-```
+Анкет:
+- "Кто ты?"
+- "Ментальное состояние"
+
+Ответов на анкеты:
+- "Кто ты?" пользователем user1
+
 
 ## Запуск сервиса
 ```
- python manage.py runserver
+make runserver
 ```
+
+
+
 
