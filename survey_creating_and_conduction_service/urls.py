@@ -15,6 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.shortcuts import render
 from django.urls import include, path
 
 from survey_creating_and_conduction_service import views
@@ -25,4 +26,11 @@ urlpatterns = [
     path('user/', include("authorization.urls")),
     path('surveys_conducting/', include('surveys_conducting.urls', namespace='surveys_conducting')),
     path("surveys_creating/", include("surveys_creating.urls", namespace='surveys_creating')),
+    path("surveys_statistics/", include("surveys_statistics.urls", namespace="surveys_statistics")),
 ]
+
+
+def custom_page_not_found(request, exception):
+    return render(request, "404.html", status=404)
+
+handler404 = "survey_creating_and_conduction_service.urls.custom_page_not_found"

@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}Статистика по анкете{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-primary mb-3">📊 Статистика по анкете "{{ questionnaire.name }}"</h2>
+
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <div class="card shadow-sm text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Всего прохождений</h5>
+                    <p class="display-6">{{ total_responses }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card shadow-sm text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Уникальных пользователей</h5>
+                    <p class="display-6">{{ unique_users }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <h4 class="mt-4">📋 Детализация по вопросам</h4>
+
+    {% for q in questions_stats %}
+        <div class="card mb-3 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">{{ q.question }}</h5>
+                <ul class="list-group list-group-flush">
+                    {% for choice in q.choices %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>{{ choice.text }}</span>
+                            <span class="badge bg-primary rounded-pill">
+                                {{ choice.count }} раз • {{ choice.points }} баллов
+                            </span>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    {% empty %}
+        <div class="alert alert-warning">Нет данных по вопросам.</div>
+    {% endfor %}
+
+    <a href="{% url 'surveys_conducting:survey_list' %}" class="btn btn-secondary mt-3">⬅ Назад</a>
+</div>
+{% endblock %}
+

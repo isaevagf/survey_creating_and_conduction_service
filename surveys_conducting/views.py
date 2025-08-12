@@ -10,41 +10,79 @@ def survey_list(request):
     return render(request, "surveys_conducting/survey_list.html", {"surveys": surveys})
 
 
+from django.shortcuts import render, get_object_or_404, redirect
+from surveys_creating.models import Questionnaire, Question, Choice
+from .forms import SurveyResponseForm
+from .models import Response, Answer
+from django.contrib.auth.decorators import login_required
+
+
 @login_required
 def survey_detail(request, survey_id):
-    survey = get_object_or_404(Questionnaire, pk=survey_id)
+    questionnaire = get_object_or_404(Questionnaire, pk=survey_id)
+    questions = Question.objects.filter(questionnaire=questionnaire, active=True)
 
-    if Response.objects.filter(questionnaire=survey, user=request.user).exists():
-        return HttpResponseForbidden("Вы уже проходили эту анкету.")
+    existing_response = Response.objects.filter(
+        questionnaire=questionnaire,
+        user=request.user
+    ).order_by("-created_at").first()
 
-    questions = Question.objects.filter(questionnaire=survey, active=True)
+    if existing_response and "retry" not in request.GET:
+        return render(request, "surveys_conducting/survey_retry_confirm.html", {
+            "questionnaire": questionnaire
+        })
 
     if request.method == "POST":
         form = SurveyResponseForm(request.POST, questions=questions)
         if form.is_valid():
-            response = Response.objects.create(questionnaire=survey, user=request.user)
-
+            response = Response.objects.create(
+                questionnaire=questionnaire,
+                user=request.user
+            )
             for question in questions:
-                answer_value = form.cleaned_data.get(f"question_{question.id}")
+                field_name = f"question_{question.pk}"
+                answer_value = form.cleaned_data[field_name]
 
                 if isinstance(answer_value, list):
                     for choice_id in answer_value:
-                        choice = Choice.objects.get(id=choice_id)
-                        Answer.objects.create(response=response, question=question, choice=choice)
-                elif answer_value and str(answer_value).isdigit():
-
-                    choice = Choice.objects.get(id=answer_value)
-                    Answer.objects.create(response=response, question=question, choice=choice)
+                        choice = Choice.objects.get(pk=choice_id)
+                        Answer.objects.create(
+                            response=response,
+                            question=question,
+                            choice=choice
+                        )
                 else:
-                    Answer.objects.create(response=response, question=question, text_answer=answer_value)
+                    try:
+                        choice_id = int(answer_value)
+                        choice = Choice.objects.get(pk=choice_id)
+                        Answer.objects.create(
+                            response=response,
+                            question=question,
+                            choice=choice
+                        )
+                    except (ValueError, Choice.DoesNotExist):
+                        Answer.objects.create(
+                            response=response,
+                            question=question,
+                            text_answer=answer_value
+                        )
 
-            return redirect("surveys_conducting:survey_complete", survey_id=survey.id)
+            return redirect("surveys_conducting:survey_complete", survey_id=survey_id)
     else:
         form = SurveyResponseForm(questions=questions)
 
-    return render(request, "surveys_conducting/survey_detail.html", {"survey": survey, "form": form})
+    return render(request, "surveys_conducting/survey_detail.html", {
+        "questionnaire": questionnaire,
+        "form": form
+    })
+
 
 
 def survey_complete(request, survey_id):
     survey = get_object_or_404(Questionnaire, pk=survey_id)
     return render(request, "surveys_conducting/survey_complete.html", {"survey": survey})
+
+@login_required
+def available_surveys(request):
+    surveys = Questionnaire.objects.all()
+    return render(request, 'surveys_conducting/survey_list.html', {'surveys': surveys})
