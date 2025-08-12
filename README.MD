@@ -1,10 +1,12 @@
 ## Создание таблиц в БД
-
 ```
-python manage.py makemigrations surveys_creating
-python manage.py makemigrations surveys_conducting
-python manage.py migrate
- ```
+make migrate
+```
+
+## Загрузка начальных данных в таблицы в БД из файлов initial_data/initial_data.json
+```
+make initdb
+```
 
 ## Создание администратора
 ```
@@ -13,6 +15,6 @@ python manage.py createsuperuser
 
 ## Запуск сервиса
 ```
- python manage.py runserver
+make runserver
 ```
 
