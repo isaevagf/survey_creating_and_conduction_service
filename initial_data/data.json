@@ -243,7 +243,7 @@
         "pk": 22,
         "fields": {
             "questionnaire": 2,
-            "question_text": "асто вы впадаете в хандру?",
+            "question_text": "Часто вы впадаете в хандру?",
             "question_obligation": false,
             "active": true
         }

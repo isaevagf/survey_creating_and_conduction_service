@@ -125,3 +125,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = reverse_lazy('surveys_creating:survey_list')
 LOGIN_URL = reverse_lazy('authorization:login')
 LOGOUT_URL = reverse_lazy('authorization:logout')
+
+LOGOUT_REDIRECT_URL = '/'

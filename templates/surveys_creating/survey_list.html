@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% block title %}Questionnaires_title{% endblock %}
 {% block content %}
-    <h1>Ваши анкеты: </h1>
+    <h2>Ваши анкеты: </h2>
     {% for survey in surveys %}
         <h2>
-            {{ survey.q_id }}. <a href="{{ survey.get_absolute_url }}">{{ survey.name }}</a> 
+            <a href="{{ survey.get_absolute_url }}">{{ survey.name }}</a>
         </h2>
     {% empty %}
         <li>Вы еще не создали ни одной анкеты</li>
