@@ -1,15 +1,54 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Главная</title>
-</head>
-<body>
-    <h1>Добро пожаловать в систему опросов</h1>
-    <p>Вы можете перейти к списку доступных анкет для прохождения:</p>
-    <a href="{% url 'surveys_conducting:survey_list' %}">Перейти к анкетам</a>
+{% extends "base.html" %}
+{% block title %}Главная{% endblock %}
 
-    <p>Или перейти к списку анкет, созданных вами:</p>
-    <a href="{% url 'surveys_creating:survey_list' %}">Перейти к анкетам</a>
-</body>
-</html>
+{% block content %}
+<div class="text-center mb-5">
+    <h1 class="fw-bold">Сервис анкетирования</h1>
+    <p class="text-muted">Создавайте анкеты, проходите опросы и анализируйте результаты.</p>
+</div>
+
+<div class="row g-4 justify-content-center">
+    {% if user.is_authenticated %}
+    <div class="col-md-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-body text-center">
+                <h5 class="card-title">Мои анкеты</h5>
+                <p class="card-text">Создавайте, редактируйте и управляйте своими анкетами.</p>
+                <a href="{% url 'surveys_creating:survey_list' %}" class="btn btn-primary">Перейти</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-body text-center">
+                <h5 class="card-title">Доступные анкеты</h5>
+                <p class="card-text">Проходите анкеты, созданные другими пользователями.</p>
+                <a href="{% url 'surveys_conducting:available_surveys' %}" class="btn btn-primary">Перейти</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow-sm h-100 d-flex flex-column">
+            <div class="card-body d-flex flex-column text-center">
+                <h5 class="card-title">Моя статистика</h5>
+                <p class="card-text flex-grow-1">Анализируйте результаты по вашим анкетам.</p>
+                <a href="{% url 'authorization:dashboard' %}" class="btn btn-primary mt-auto w-auto mx-auto">Перейти</a>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="col-md-6">
+        <div class="card shadow-sm h-100">
+            <div class="card-body text-center">
+                <h5 class="card-title">Войдите в систему</h5>
+                <p class="card-text">Чтобы создавать и проходить анкеты, авторизуйтесь или зарегистрируйтесь.</p>
+                <a href="{% url 'authorization:login' %}" class="btn btn-primary me-2">Войти</a>
+                <a href="{% url 'authorization:register' %}" class="btn btn-warning">Регистрация</a>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,14 +1,5 @@
 [
     {
-        "model": "authorization.profile",
-        "pk": 1,
-        "fields": {
-            "user": 1,
-            "date_of_birth": null,
-            "questionnaires": []
-        }
-    },
-    {
         "model": "surveys_creating.questionnaire",
         "pk": 1,
         "fields": {

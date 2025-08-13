@@ -18,10 +18,10 @@ from django.contrib import admin
 from django.shortcuts import render
 from django.urls import include, path
 
-from survey_creating_and_conduction_service import views
+from survey_creating_and_conduction_service.views import index
 
 urlpatterns = [
-    path("", views.index, name="index"),
+    path('', index, name='index'),
     path('admin/', admin.site.urls),
     path('user/', include("authorization.urls")),
     path('surveys_conducting/', include('surveys_conducting.urls', namespace='surveys_conducting')),

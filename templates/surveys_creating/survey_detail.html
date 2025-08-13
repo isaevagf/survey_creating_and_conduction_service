@@ -27,7 +27,7 @@
                         </button>
                     </form>
                     <p></p>
-                    <table style="width: 500px;" border="3px">
+                    <table style="width: 500px;" border="1">
                         <tbody>
                         <tr>
                             <th style="background-color: lightgrey;">Текст ответа</th>
@@ -36,8 +36,8 @@
                         {% for choice in choices %}
                             {% if choice.question == question %}
                                 <tr>
-                                    <td>{{ choice.choice_text }}</td>
-                                    <td> {{ choice.choice_points }}</td>
+                                    <td align="left">{{ choice.choice_text }}</td>
+                                    <td align="center"> {{ choice.choice_points }}</td>
                                 </tr>
                             {% endif %}
                         {% endfor %}
