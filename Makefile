@@ -14,3 +14,6 @@ initdb:
 
 #dumpdata:
 #	python -Xutf8 manage.py dumpdata --output initial_data/data.json
+
+test:
+	python -m pytest -v --disable-warnings
