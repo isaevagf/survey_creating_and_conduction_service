@@ -96,4 +96,4 @@ def delete_questionnaire(request, q_id):
     questionnaire = get_object_or_404(Questionnaire, pk=q_id)
     if questionnaire:
         questionnaire.delete()
-    return survey_list(request)
+    return redirect('surveys_creating:survey_list')
