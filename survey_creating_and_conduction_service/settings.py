@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-7%p^2$j9jf+ua3ni@0f=w*w_us(q^#+t^)3e4a0k@ak1_()3ba'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = ["*"]
 
 # Application definition
@@ -122,6 +122,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-LOGIN_REDIRECT_URL = reverse_lazy('surveys_creating:survey_list')
+LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = reverse_lazy('authorization:login')
 LOGOUT_URL = reverse_lazy('authorization:logout')

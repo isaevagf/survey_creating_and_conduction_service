@@ -16,22 +16,35 @@ def survey_stats(request, pk):
 
     questions_stats = []
     for question in Question.objects.filter(questionnaire=questionnaire):
+        multi_choices = Choice.objects.filter(question=question)
         answers = Answer.objects.filter(response__questionnaire=questionnaire, question=question)
+        total_answers = answers.count()
 
-        choice_counts = []
-        for choice in Choice.objects.filter(question=question):
-            count = answers.filter(choice=choice).count()
-            total_points = sum(a.choice.choice_points for a in answers.filter(choice=choice))
-            choice_counts.append({
-                "text": choice.choice_text,
-                "count": count,
-                "points": total_points
+        if multi_choices.exists():
+            choice_counts = []
+            for choice in Choice.objects.filter(question=question):
+                count = answers.filter(choice=choice).count()
+                total_points = sum(a.choice.choice_points for a in answers.filter(choice=choice))
+                percent = round((count / total_answers) * 100, 2) if total_answers > 0 else 0
+
+                choice_counts.append({
+                    "text": choice.choice_text,
+                    "count": count,
+                    "points": total_points,
+                    "percent": percent
+                })
+
+            questions_stats.append({
+                "question": question.question_text,
+                "choices": choice_counts
             })
-
-        questions_stats.append({
-            "question": question.question_text,
-            "choices": choice_counts
-        })
+        else:
+            text_answers = answers.values_list("text_answer", flat=True)
+            questions_stats.append({
+                "question": question.question_text,
+                "choices": [],
+                "text_answers": list(text_answers)
+            })
 
     context = {
         "questionnaire": questionnaire,

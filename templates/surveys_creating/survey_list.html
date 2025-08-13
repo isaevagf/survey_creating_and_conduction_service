@@ -2,7 +2,7 @@
 <form method="post">
     {% block title %}Questionnaires_title{% endblock %}
     {% block content %}
-        <h1 style="color:darkslategrey; font-size: 40px">Ваши анкеты: </h1>
+        <h1 >Ваши анкеты: </h1>
          <h3><a href="{% url 'surveys_creating:questionnaire_creating' %}" class="btn btn-secondary">Создать анкету</a></h3>
         {% for survey in surveys %}
             <h2>
@@ -16,6 +16,6 @@
         {% empty %}
             <li>Вы еще не создали ни одной анкеты</li>
         {% endfor %}
-       
+
     {% endblock %}
 </form>

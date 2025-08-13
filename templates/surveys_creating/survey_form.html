@@ -1,9 +1,14 @@
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    {{ formset.management_form }}
-    <button type="submit">Сохранить и перейти к вопросам</button>
-    <p>
-    <a href="{% url 'surveys_creating:survey_list' %}" class="btn btn-secondary mt-3">⬅ Вернуться к назад без сохранения</a>
-    </p>
-</form>
+{% extends "base.html" %}
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {{ formset.management_form }}
+        <button type="submit">Сохранить и перейти к вопросам</button>
+        <p>
+            <a href="{% url 'surveys_creating:survey_list' %}" class="btn btn-secondary mt-3">⬅ Вернуться к назад без
+                сохранения</a>
+        </p>
+    </form>
+{% endblock %}
+
