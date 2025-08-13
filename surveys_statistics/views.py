@@ -1,3 +1,5 @@
+from collections import Counter
+
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404
 from surveys_creating.models import Questionnaire, Question, Choice
@@ -40,11 +42,24 @@ def survey_stats(request, pk):
                 "choices": choice_counts
             })
         else:
-            text_answers = answers.values_list("text_answer", flat=True)
+            # text_answers = answers.values_list("text_answer", flat=True)
+            # questions_stats.append({
+            #     "question": question.question_text,
+            #     "choices": [],
+            #     "text_answers": list(text_answers)
+            # })
+
+            text_answers_raw = answers.values_list("text_answer", flat=True)
+            normalized = [a.strip().lower() for a in text_answers_raw if a]
+            counts = Counter(normalized)
+            grouped_answers = [
+                {"text": text, "count": count}
+                for text, count in counts.items()
+            ]
             questions_stats.append({
                 "question": question.question_text,
                 "choices": [],
-                "text_answers": list(text_answers)
+                "text_answers": grouped_answers
             })
 
     context = {

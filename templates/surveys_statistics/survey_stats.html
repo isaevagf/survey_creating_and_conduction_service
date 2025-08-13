@@ -47,8 +47,11 @@
             {% elif q.text_answers %}
                 <ul class="list-group list-group-flush">
                     {% for answer in q.text_answers %}
-                        <li class="list-group-item">
-                            {{ answer }}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                         <span>{{ answer.text }}</span>
+                            <span class="badge bg-primary rounded-pill">
+                            {{ answer.count }} раз
+                            </span>
                         </li>
                     {% endfor %}
                 </ul>
