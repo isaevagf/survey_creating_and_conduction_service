@@ -22,6 +22,8 @@ make initdb
 ```
 Предзаполнятся таблицы пользователей: 
 - user1 (login - user1, пароль - user1)
+- user2 (login - user2, пароль - user2)
+- user3 (login - user3, пароль - user3)
 - admin (login - admin, пароль - admin)
 
 Анкет:
