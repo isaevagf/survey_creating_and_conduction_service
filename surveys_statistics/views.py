@@ -12,7 +12,8 @@ def survey_stats(request, pk):
         return render(request, "403.html", status=403)
 
     total_responses = Response.objects.filter(questionnaire=questionnaire).count()
-    unique_users = Response.objects.filter(questionnaire=questionnaire).values("user").distinct().count()
+    unique_users = (Response.objects.filter(questionnaire=questionnaire)
+                    .values("user").distinct().count())
 
     questions_stats = []
     for question in Question.objects.filter(questionnaire=questionnaire):
