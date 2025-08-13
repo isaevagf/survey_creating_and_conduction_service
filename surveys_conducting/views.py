@@ -51,36 +51,29 @@ def survey_detail(request, survey_id):
                             question=question,
                             choice=choice
                         )
-                # else:
-                #     try:
-                #         choice_id = int(answer_value)
-                #         choice = Choice.objects.get(pk=choice_id)
-                #         Answer.objects.create(
-                #             response=response,
-                #             question=question,
-                #             choice=choice
-                #         )
-                #     except (ValueError, Choice.DoesNotExist):
-                #         Answer.objects.create(
-                #             response=response,
-                #             question=question,
-                #             text_answer=answer_value
-                #         )
 
                 elif str(answer_value).isdigit():
+                  try:
                     choice = Choice.objects.get(pk=int(answer_value))
                     Answer.objects.create(
-                        response=response,
-                        question=question,
-                        choice=choice
+                    response=response,
+                    question=question,
+                    choice=choice
                     )
 
-                elif answer_value:
-                    Answer.objects.create(
+                  except (ValueError, Choice.DoesNotExist):
+                        Answer.objects.create(
                         response=response,
                         question=question,
-                        text_answer=answer_value
-                    )
+                        text_answer=str(answer_value)
+                        )
+
+                  else:
+                      Answer.objects.create(
+                          response=response,
+                          question=question,
+                          text_answer=str(answer_value)
+                      )
 
             return redirect("surveys_conducting:survey_complete", survey_id=survey_id)
     else:
